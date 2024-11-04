@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis_antispam
+    command: redis-server --requirepass your_password --appendonly yes
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis_data:app/redis_data
+    restart: always
+    environment:
+      - REDIS_PASSWORD=your_password
+    networks:
+      - redis_net
+      
+  moderator:
+    build:
+      context: . 
+      dockerfile: Dockerfile  
+    container_name: moderator_bot
+    env_file: 
+      - .env
+    volumes:
+      - .:/app
+      - ./bad_words.txt:/app/bad_words.txt
+    command: /bin/sh -c "alembic upgrade head && python bot/main.py"
