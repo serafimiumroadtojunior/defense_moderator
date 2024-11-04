@@ -38,26 +38,62 @@ The bot has several commands that can be used to access its features:
 - **Redis** v5
 - **python-dotenv** v1
 
-## Installation
+# Installation
 
 To get started with this bot, follow these steps:
 
-- Clone this repository to your local machine.
+## Common Steps
 
-    ```
-    $ git clone [source]
-    ```
+1. **Clone this repository** to your local machine:
 
-- Create a virtual environment, activate it and install required dependencies.
-
-    ```
-    $ python3.10 -m venv env
-    $ source env/bin/activate
-    $ pip install -r requirements/local.txt
+    ```bash
+    git clone https://github.com/serafimiumroadtojunior/defense_moderator_v2
     ```
 
-- Create a new bot on Telegram by talking to the BotFather, and [obtain the API token](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token).
+2. **Create a new bot** on Telegram by talking to [BotFather](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) and obtain the API token.
 
-- Rename the file `.env.dist` to `.env` and replace the placeholders with required data.
+3. **Rename the file** `.env.dist` to `.env` and replace the placeholders with the required data.
 
-- Run the bot using `python bot.py`.
+## Running on Windows
+
+Follow these steps to run the bot on Windows:
+
+1. **Install [Poetry](https://python-poetry.org/docs/#installation)** if you haven't done so already.
+
+2. **Create a virtual environment, activate it, and install the required dependencies**:
+
+    ```powershell
+    python -m venv .venv
+    .venv\Scripts\Activate
+    poetry install
+    ```
+
+3. **Run the bot**:
+
+    ```powershell
+    poetry run python bot.py
+    ```
+
+## Running with Docker
+
+To run the bot using Docker, follow these steps:
+
+1. **Ensure you have Docker and Docker Compose installed**. If not, follow the instructions on the [official Docker website](https://docs.docker.com/get-docker/) to install them.
+
+2. **Navigate to the project directory** where your `docker-compose.yml` file is located.
+
+3. **Build and start the Docker containers**:
+
+    ```bash
+    docker-compose up --build
+    ```
+
+4. **Verify that the bot is running**. You should see logs in the terminal indicating that the bot is active and ready to respond.
+
+## Additional Commands for Docker
+
+- To run the bot in detached mode (in the background), use:
+
+    ```bash
+    docker-compose up --build -d
+    ```
