@@ -38,7 +38,7 @@ The bot has several commands that can be used to access its features:
 - **Redis** v5
 - **python-dotenv** v1
 
-# Installation
+## Installation
 
 To get started with this bot, follow these steps:
 
