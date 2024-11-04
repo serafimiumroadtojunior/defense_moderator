@@ -6,5 +6,4 @@ COPY . .
 
 RUN pip install --upgrade pip
 RUN pip install poetry && \
-    poetry config virtualenvs.create false && \
     poetry install
