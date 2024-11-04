@@ -89,11 +89,3 @@ To run the bot using Docker, follow these steps:
     ```
 
 4. **Verify that the bot is running**. You should see logs in the terminal indicating that the bot is active and ready to respond.
-
-## Additional Commands for Docker
-
-- To run the bot in detached mode (in the background), use:
-
-    ```bash
-    docker-compose up --build -d
-    ```
