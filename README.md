@@ -18,13 +18,13 @@ The bot provides the following features:
 
 The bot has several commands that can be used to access its features:
 
-- `/help`: Sends a Handlers Guide
-- `/mute`:
-- `/unmute`:
-- `/ban`:
-- `/unban`:
-- `/warn`:
-- `/message_id`:  
+- `/help`: Sends a handlers Guide
+- `/mute`: Issues mute to the user
+- `/unmute`: Issues unmute to the user
+- `/ban`: Issues ban to the user
+- `/unban`: Issues unban to the user
+- `/warn`: Issues warn to the user
+- `/message_id`: Sends a message id
 
 ## Requirements
 
