@@ -2,7 +2,7 @@
 
 ![aiogram](https://img.shields.io/badge/python-v3.12-blue.svg?logo=python&logoColor=yellow) ![aiogram](https://img.shields.io/badge/aiogram-v3-blue.svg?logo=telegram) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-About...
+This bot has a wide range of capabilities, in addition to the usual functions such as mute and ban, there are other features, unmut and unban. The bot also implements a warning system using PostgreSQL+SQLalchemy. Special middleware for greeting and farewell to the user have also been implemented. There is also a message filter for links and bad words based on NLP Spacy. There is also a system for checking messages for flood using NLP Spacy and Redis.
 
 ## Features
 
