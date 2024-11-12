@@ -31,6 +31,7 @@ services:
 
   postgresql:
     image: postgres:17.0
+    
     shm_size: 2gb
 
     environment:
