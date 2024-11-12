@@ -36,7 +36,7 @@ The bot has several commands that can be used to access its features:
 - **Alembic** v1
 - **psycopg2** v2
 - **spaCy** v3
-- **Redis** v5
+- **Redis** v7.4.1
 - **python-dotenv** v1
 
 # Installation
