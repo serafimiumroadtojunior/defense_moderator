@@ -29,6 +29,7 @@ The bot has several commands that can be used to access its features:
 ## Requirements
 
 - **Python** v3.12.7
+- **PostgreSQL** v17
 - **aiogram** v3
 - **SQLAlchemy** v2
 - **asyncpg** v0.27
