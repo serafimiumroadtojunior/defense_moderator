@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+
+  moderator:
+    build:
+      context: app 
+      dockerfile: Dockerfile  
+
+    container_name: moderator_bot
+
+    user: moderator
+
+    stop_signal: SIGINT
+
+    env_file: 
+      - .env
+
+    depends_on:
+    - redis
+    - postgresql
+
+    networks:
+      - moderator_network
+
+    restart: always
+
+    command: alembic upgrade head
+
+    entrypoint: ["python", "-m", "bot"]
+
+  postgresql:
+    image: postgres:17.0
+
+    shm_size: 2gb
+
+    environment:
+      - POSTGRES_USER=$PSQL_USER
+      - POSTGRES_PASSWORD=$PSQL_PASSWORD
+      - POSTGRES_DB=$PSQL_DB
+
+    networks:
+      - moderator_network
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - ./psql/data:/var/lib/postgresql/data
+      - ./psql/db-init-scripts:/docker-entrypoint-initdb.d:ro
+
+    restart: always
+
+  redis:
+    image: redis:7.4.1
+
+    command:
+      - --port 6379
+      - --requirepass $REDIS_PASSWORD
+      - --maxmemory 2gb
+      - --save 60 1000 
+
+    container_name: redis_antispam
+
+    ports:
+      - 6379:6379
+
+    volumes:
+      - ./redis/data:/data
+
+    restart: always
+
+    networks:
+      - moderator_network
+
+    entrypoint: [ "redis-server" ]
+
+
+networks:
+  moderator_network:
+    driver: bridge

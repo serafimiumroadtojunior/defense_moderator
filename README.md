@@ -29,14 +29,13 @@ The bot has several commands that can be used to access its features:
 ## Requirements
 
 - **Python** v3.12.7
-- **PostgreSQL** v17
 - **aiogram** v3
 - **SQLAlchemy** v2
 - **asyncpg** v0.27
 - **Alembic** v1
 - **psycopg2** v2
 - **spaCy** v3
-- **Redis** v7.4.1
+- **Redis** v5
 - **python-dotenv** v1
 
 # Installation
