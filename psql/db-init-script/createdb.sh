@@ -1,1 +1,0 @@
-createdb $PSQL_DB -U $PSQL_USER --owner=$PSQL_USER
