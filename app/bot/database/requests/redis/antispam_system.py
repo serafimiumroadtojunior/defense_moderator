@@ -7,7 +7,7 @@ async def get_old_message(
     user_id: int, 
     chat_id: int,
     message: str
-    ) -> Optional[str]:
+) -> Optional[str]:
     user: str = f"user:{user_id}:{chat_id}:unique_messages"     
 
     async with async_redis as redis:
@@ -23,7 +23,7 @@ async def get_count_messages(
     user_id: int, 
     chat_id: int,
     message: str
-    ) -> int:
+) -> int:
     user: str = f"user:{user_id}:{chat_id}:repeated_messages"
 
     async with async_redis as redis:
@@ -38,7 +38,7 @@ async def get_count_reactions(
     user_id: int, 
     chat_id: int,
     emoji: str
-    ) -> int:
+) -> int:
     user: str = f"user:{user_id}:{chat_id}:reactions"
 
     async with async_redis as redis:
