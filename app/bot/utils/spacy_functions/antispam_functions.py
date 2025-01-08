@@ -184,12 +184,12 @@ async def parse_messages_percent(
     old_member: ChatMember = member.old_chat_member
 
     if new_member.status == "member" or old_member.status == "member":
-        messages_percent: float = await get_messages_percent(
+        messages_percent: Optional[float] = await get_messages_percent(
             user_id=new_member.user.id,
             chat_id=chat.id
         )
 
-        if messages_percent > spam_percent:
+        if messages_percent and messages_percent > spam_percent:
             await ban_with_message(
                 bot=bot,
                 chat_id=chat.id,
