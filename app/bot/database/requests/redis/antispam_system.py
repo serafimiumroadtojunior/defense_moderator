@@ -103,9 +103,11 @@ async def get_messages_percent(user_id: int) -> Optional[float]:
 
         if checker:
             stats: Dict[str, int] = await redis.hgetall(name=user_stats)
-            all_messages: int = stats['all_messages']
-            not_unique_messages: int = stats['not_unique_messages']
-            percentage: float = (not_unique_messages / all_messages) * 100
 
-            return percentage
-        return None
+            if stats['all_messages'] >= 5:
+                all_messages: int = stats['all_messages']
+                not_unique_messages: int = stats['not_unique_messages']
+                percentage: float = (not_unique_messages / all_messages) * 100
+
+                return percentage
+            return None
